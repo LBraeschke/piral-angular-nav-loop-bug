@@ -1,3 +1,2 @@
-<div>Child-Route: <ng-container *ngIf="path$ | async as path">/{{path}}</ng-container></div>
-<button (click)="onClick()">Navigate to another SubChild</button>
-<router-outlet></router-outlet>
+<div>Child-Route</div>
+<div *ngFor="let _ of [].constructor(12000)">🐱 {{path$ | async}}</div>

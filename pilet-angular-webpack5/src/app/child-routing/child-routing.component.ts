@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import { Observable, map } from "rxjs";
+import {Component, OnInit} from "@angular/core";
+import {map, Observable} from "rxjs";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: "app-child-routing",
@@ -8,19 +8,17 @@ import { Observable, map } from "rxjs";
   styleUrls: ["./child-routing.component.scss"],
 })
 export class ChildRoutingComponent implements OnInit {
-  
-  path$: Observable<String> | undefined;
-  
-  constructor(private router: Router, private route: ActivatedRoute) {}
 
+  path$: Observable<String> | undefined;
+
+
+  constructor(
+      private route: ActivatedRoute,
+  ) {}
 
   ngOnInit(): void {
-    this.path$ = this.route.url.pipe(map((url) => { return url.toString() 
-    }))
-    this.router.navigate(["subsubpath"], { relativeTo: this.route });
+    this.path$ = this.route.url.pipe(map((url) => url.toString()
+    ))
   }
 
-  onClick() {
-    this.router.navigate(['test' + Math.ceil(Math.random() * 10)], {relativeTo: this.route})
-  }
 }

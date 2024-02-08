@@ -14,10 +14,6 @@ export class BaseRoutingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.router.navigate(["subpath"], {
-        relativeTo: this.route,
-        replaceUrl: true,
-        skipLocationChange: false,
-      });
+
   }
 }

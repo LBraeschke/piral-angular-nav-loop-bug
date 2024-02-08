@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, Inject, OnInit, ViewEncapsulation} from '@angular/core';
+import {Router} from '@angular/router';
+import {ComponentContext} from "piral-debug-webpack5";
 
 @Component({
   selector: 'app-root',
@@ -10,15 +11,24 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'ng-sample';
 
-  constructor(private router: Router) {
+  constructor(
+      private router: Router,
+      @Inject('Context') public context: ComponentContext,
+  ) {
 
-  }
-
-  onClick() {
-    this.router.navigate(['sharing']);
   }
 
   ngOnInit(): void {
-      console.log('app-component')
+    let counter = 0;
+    this.router.events.subscribe((event) => {
+      if (event.type === 15) {
+        console.log('context.navigation.url', this.context.navigation.url);
+        console.log('router event', event.routerEvent);
+        if (counter < 15) {
+          counter++;
+          this.router.navigate(['/sharing/test' + Math.ceil(Math.random() * 2)]);
+        }
+      }
+    });
   }
 }

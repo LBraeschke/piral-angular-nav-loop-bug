@@ -3,7 +3,6 @@ import { RouterModule, Routes } from "@angular/router";
 import { EmptyComponent } from "./empty.component";
 import { BaseRoutingComponent } from "./base-routing/base-routing.component";
 import { ChildRoutingComponent } from "./child-routing/child-routing.component";
-import { SubChildRoutingComponent } from "./sub-child-routing/sub-child-routing.component";
 
 const routes: Routes = [
   {
@@ -11,11 +10,8 @@ const routes: Routes = [
     component: BaseRoutingComponent,
     children: [
       {
-        path: ":shareId",
-        component: ChildRoutingComponent,
-        children: [
-          { path: ":documentId", component: SubChildRoutingComponent },
-        ],
+        path: ":id",
+        component: ChildRoutingComponent
       },
     ],
   },

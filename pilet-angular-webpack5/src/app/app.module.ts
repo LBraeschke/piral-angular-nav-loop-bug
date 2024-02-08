@@ -4,7 +4,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { ChildRoutingComponent } from "./child-routing/child-routing.component";
-import { SubChildRoutingComponent } from "./sub-child-routing/sub-child-routing.component";
 import { BaseRoutingComponent } from "./base-routing/base-routing.component";
 import { NavEntryComponent } from "./nav-entry/nav-entry.component";
 
@@ -12,7 +11,6 @@ import { NavEntryComponent } from "./nav-entry/nav-entry.component";
   declarations: [
     AppComponent,
     ChildRoutingComponent,
-    SubChildRoutingComponent,
     BaseRoutingComponent,
     NavEntryComponent,
   ],
